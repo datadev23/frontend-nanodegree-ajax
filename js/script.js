@@ -19,8 +19,6 @@ function loadData() {
 //var street = $('#street').val();
  var street= $("input:text[id$='street']").val();;
   var city= $("input:text[id$='city']").val();
-alert(street);
-alert(city);
 
 $body.append('<img class="bgimg" src="http://example.com/someimage.png">');
 
