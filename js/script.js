@@ -1,5 +1,7 @@
 
+    
 function loadData() {
+    
 
     var $body = $('body');
     var $wikiElem = $('#wikipedia-links');
@@ -13,22 +15,25 @@ function loadData() {
 
     // load streetview
 
-    // YOUR CODE GOES HERE!
-
-
 //var street = $('#street').val();
  var street= $("input:text[id$='street']").val();;
   var city= $("input:text[id$='city']").val();
+  var address = street + ', ' + city;
 
-$body.append('<img class="bgimg" src="http://example.com/someimage.png">');
+$greeting.text('So, you want to live at ' + address + '?');
 
 
 
+ var streetviewUrl = ('http://maps.googleapis.com/maps/api/streetview?size=600x300&location=' 
+    + address + '');
 
-    return true;
+$body.append('<img class="bgimg" src="' + streetviewUrl + '">');
+   return false;
+
 };
 
 $('#form-container').submit(loadData);
 
 
-console.log("test info");
+
+
