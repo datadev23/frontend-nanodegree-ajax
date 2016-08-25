@@ -32,20 +32,10 @@ $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
  
 $.getJSON( "https://api.nytimes.com/svc/search/v2/articlesearch.json", function( data ) {
 
-
-  var items = [];
   var i =0;
-   //console.log(data.response.docs[2]);
-
    $.each(data.response.docs,function(i, item) {
 
-    //console.log(data.response.docs[1]);
-   //console.log(item.lead_paragraph);
-    //items.push(item);
-
-   //console.log("items array:  " + items);
-
- $nytElem.append('<li class = "article">'+ item.lead_paragraph + '</li>');
+ $nytElem.append('<li class = "article">'+ '<a href="' + item.web_url + '">' +item.lead_paragraph + '</a>'+ '</li>');
 
  });
 
