@@ -6,7 +6,7 @@ function loadData() {
     var $body = $('body');
     var $wikiElem = $('#wikipedia-links');
     var $nytHeaderElem = $('#nytimes-header');
-   
+    var $nytElem = $('#nytimes-articles');
     var $greeting = $('#greeting');
 
     // clear out old data before new request
@@ -28,17 +28,8 @@ $greeting.text('So, you want to live at ' + address + '?');
     + address + '');
 
 $body.append('<img class="bgimg" src="' + streetviewUrl + '">');
+
  
-
-
-   return false;
-
-};
-
-$('#form-container').submit(loadData);
-
-
- var $nytElem = $('#nytimes-articles');
 $.getJSON( "https://api.nytimes.com/svc/search/v2/articlesearch.json", function( data ) {
 
 
@@ -60,3 +51,14 @@ $.getJSON( "https://api.nytimes.com/svc/search/v2/articlesearch.json", function(
 
 
 });
+ 
+
+
+   return false;
+
+};
+
+$('#form-container').submit(loadData);
+
+
+
