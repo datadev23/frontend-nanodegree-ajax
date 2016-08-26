@@ -41,6 +41,34 @@ $.getJSON( "https://api.nytimes.com/svc/search/v2/articlesearch.json", function(
 
 
 });
+
+$.ajax({
+    url: "https://en.wikipedia.org/w/api.php?action=opensearch&search=" + city + "&limit=5&namespace=0&format=jsonfm",
+ 
+    // The name of the callback parameter, as specified by Media Wiki
+    jsonp: "callback",
+ 
+    // Tell jQuery we're expecting JSONP
+    dataType: "jsonp",
+ 
+    // Data From Media Wiki
+    data: {
+        q: "action=opensearch&search=" + city + "&limit=10&namespace=0&format=jsonfm",
+        format: "json"
+    },
+ 
+    // Work with the response
+    success: function( response ) {
+    alert("successful query");
+
+
+
+     $wikiElem.append('<li class="article">'+ response[1] + '</li>');
+
+       console.log( response[1]); // server response
+       
+    }
+});
  
 
 
